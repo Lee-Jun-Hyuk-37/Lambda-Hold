@@ -24,6 +24,9 @@ results/
 # Generated model variants (written at runtime by the shortening-velocity curriculum)
 generated/
 
+# Large source GIFs (the small README clips are committed separately)
+assets/lambda-hold*.gif
+
 # OS / editor
 .DS_Store
 .idea/
