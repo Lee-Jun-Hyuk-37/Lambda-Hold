@@ -4,6 +4,8 @@
   <a href="https://lee-jun-hyuk-37.github.io/projects/lambda-hold/"><img src="https://img.shields.io/badge/Project_Page-2088FF?style=for-the-badge&logo=github&logoColor=white" alt="Project Page"></a>
   &nbsp;&nbsp;
   <a href="https://arxiv.org/abs/2608.17030"><img src="https://img.shields.io/badge/arXiv-2608.17030-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv"></a>
+  &nbsp;&nbsp;
+  <a href="https://doi.org/10.5281/zenodo.23265019"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23265019.svg" alt="DOI"></a>
 </p>
 
 <table>
