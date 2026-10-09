@@ -29,8 +29,15 @@ class SprintRewardWrapper(gym.Wrapper):
     def step(self, action):
         out = self.env.step(action)
         reward = self._sprint_reward()
-        if len(out) == 4:
-            obs, _, done, info = out
-            return obs, reward, done, info
-        obs, _, term, trunc, info = out
-        return obs, reward, term, trunc, info
+        # Normalize to the Gymnasium 5-tuple so the stack above sees one API.
+        if len(out) == 5:
+            obs, _, terminated, truncated, info = out
+            return obs, reward, terminated, truncated, info
+        obs, _, done, info = out
+        return obs, reward, bool(done), False, info
+
+    def reset(self, **kwargs):
+        out = self.env.reset(**kwargs)
+        if isinstance(out, tuple) and len(out) == 2:
+            return out
+        return out, {}
