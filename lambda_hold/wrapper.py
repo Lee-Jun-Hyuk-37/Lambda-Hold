@@ -9,8 +9,9 @@ reward is the sum over its inner steps.
 
 Decisions are placed at ground-reaction-force events: either foot's vertical GRF
 crossing ``contact_frac`` of body weight, rising (strike) or falling (toe-off),
-with one sub-point inserted at half the estimated interval and every hold bounded
-to ``[min_hold_sec, max_hold_sec]``.
+with one sub-point inserted at half the estimated interval. A GRF event ends the
+hold immediately, the sub-point is kept only past ``min_hold_sec``, and no hold
+exceeds ``max_hold_sec``.
 
 The observation holds muscle length, velocity and force; foot contact and GRF;
 joint angles and angular velocities; a vestibular signal; and an efference copy
@@ -132,14 +133,12 @@ class LambdaActionWrapper(gym.Wrapper):
     def _event_subdiv_trigger(self, n_inner, new_contact, new_unload):
         """Decide whether to end the hold interval at this inner step.
 
-        A real GRF event (strike or toe-off) ends the interval and updates the
-        event history, but only once the minimum-hold floor is reached; an event
-        that arrives earlier is ignored entirely, neither triggering a resample
-        nor updating the history, so every hold lasts at least the floor. A
-        scheduled sub-point likewise ends the interval only at or after the floor;
-        one that falls earlier is skipped. The maximum-hold cap forces a resample.
+        A real GRF event (strike or toe-off) ends the interval immediately and
+        updates the event history. A scheduled sub-point ends it only at or after
+        the minimum-hold floor; one that falls earlier is skipped. The
+        maximum-hold cap forces a resample.
         """
-        if (new_contact or new_unload) and n_inner >= self._min_hold_n:
+        if new_contact or new_unload:
             self._fire_event()
             return True
         while self._subpoints and self._t_inner >= self._subpoints[0]:
