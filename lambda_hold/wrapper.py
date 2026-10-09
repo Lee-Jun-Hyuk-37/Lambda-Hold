@@ -215,6 +215,9 @@ class LambdaActionWrapper(gym.Wrapper):
         self._last_lambda = np.asarray(lam, dtype=np.float64)
         obs = self._ep_transform(obs)
         info = dict(out[-1]) if isinstance(out[-1], dict) else {}
+        # Number of simulation steps this decision spanned (one decision covers
+        # many simulation steps); used to track the simulation-step budget.
+        info["macro_inner_steps"] = n_inner
         if len(out) == 4:
             trunc = bool(info.get("TimeLimit.truncated", False))
             return obs, total_reward, bool(done) and not trunc, trunc, info
