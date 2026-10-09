@@ -13,11 +13,11 @@
 <td width="25%"><img src="assets/frontal.gif" width="100%"></td>
 <td width="25%"><img src="assets/frontal_slow.gif" width="100%"></td>
 </tr>
-<tr align="center">
-<td></td>
-<td><sub><b>slow (×1/4)</b></sub></td>
-<td></td>
-<td><sub><b>slow (×1/4)</b></sub></td>
+<tr align="center" valign="middle">
+<td>Sagittal</td>
+<td>Sagittal, slow (×1/4)</td>
+<td>Frontal</td>
+<td>Frontal, slow (×1/4)</td>
 </tr>
 </table>
 
@@ -46,8 +46,8 @@ model of the human motor controller.
 
 ## Installation
 
-The simulator is [SCONE](https://scone.software) with the Hyfydy engine, which
-provides the `sconepy` Python module and the H2190 musculoskeletal model. Install
+The simulator is [SCONE](https://scone.software) with the [Hyfydy](https://hyfydy.com/)
+engine, which provides the `sconepy` Python module and the H2190 musculoskeletal model. Install
 SCONE first and make sure `from sconetools import sconepy` works in your Python
 environment.
 
