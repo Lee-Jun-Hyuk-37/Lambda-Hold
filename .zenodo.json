@@ -1,0 +1,37 @@
+{
+    "title": "Lambda-Hold Control",
+    "upload_type": "software",
+    "description": "Official implementation of λ-Hold control for predictive musculoskeletal simulation",
+    "creators": [
+        {
+            "name": "Lee, Jun Hyuk",
+            "affiliation": "Seoul National University",
+            "orcid": "0000-0003-3345-5303"
+        },
+        {
+            "name": "Lee, Chihyeong",
+            "affiliation": "Seoul National University",
+            "orcid": "0009-0002-4335-9825"
+        },
+        {
+            "name": "Ahn, Jooeun",
+            "affiliation": "Seoul National University",
+            "orcid": "0000-0002-7964-5148"
+        }
+    ],
+    "license": "mit",
+    "access_right": "open",
+    "keywords": [
+        "motor control",
+        "musculoskeletal simulations",
+        "predictive simulation",
+        "reinforcement learning"
+    ],
+    "related_identifiers": [
+        {
+            "identifier": "https://doi.org/10.48550/arXiv.2608.17030",
+            "relation": "isSupplementTo",
+            "resource_type": "publication-preprint"
+        }
+    ]
+}
