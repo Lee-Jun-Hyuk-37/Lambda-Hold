@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Training outputs
+runs/
+logs/
+*.log
+checkpoints/
+*.zip
+vecnormalize.pkl
+
+# Simulation / rollout artifacts
+*.sto
+results/
+
+# Generated model variants (written at runtime by the shortening-velocity curriculum)
+generated/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

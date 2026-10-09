@@ -1,0 +1,3 @@
+[submodule "external/sconegym"]
+	path = external/sconegym
+	url = https://github.com/tgeijten/sconegym.git
