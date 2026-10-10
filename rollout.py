@@ -25,6 +25,10 @@ def main():
     parser.add_argument("--model", required=True, help="path to a saved model .zip")
     parser.add_argument("--vecnormalize", required=True, help="path to vecnormalize.pkl")
     parser.add_argument("--episodes", type=int, default=1)
+    parser.add_argument("--deterministic", action=argparse.BooleanOptionalAction,
+                        default=True,
+                        help="run the policy deterministically (default); "
+                             "use --no-deterministic to sample stochastically")
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--g-tonic", type=float, default=50.0)
     parser.add_argument("--g-phasic", type=float, default=0.1)
@@ -57,7 +61,7 @@ def main():
         ep_reward = 0.0
         decisions = 0
         while not done:
-            action, _ = model.predict(normalize(obs), deterministic=True)
+            action, _ = model.predict(normalize(obs), deterministic=args.deterministic)
             obs, reward, terminated, truncated, _ = env.step(action)
             done = terminated or truncated
             ep_reward += float(reward)
